@@ -21,7 +21,7 @@ nav ul {
 }
 
 .gameContainer {
-    background-color: yellow;
+    
     display: flex;
     justify-content: center;
     margin-top: 50px;
@@ -44,9 +44,29 @@ nav ul {
 }
 
 .box:hover{
-    background-color: rgb(171, 94, 243);
+    background-color: rgb(186, 137, 231);
 }
 
 .gameInfo{
     padding: 34px;
+}
+
+.imgbox{
+  display: none;
+}
+
+.br-0{
+  border-right: 0;
+}
+
+.bl-0 {
+  border-left: 0;
+}
+
+.bt-0 {
+  border-top: 0;
+}
+
+.bb-0 {
+  border-bottom: 0;
 }
