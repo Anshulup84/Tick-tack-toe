@@ -2,6 +2,7 @@ let music = new Audio("music.mp3");
 let turnSound = new Audio("ting.mp3");
 let gameover = new Audio("gameover.mp3");
 let turnFirst = "X";
+let isgameover = false;
 
 // Function to change the turn
 const changeTurn = () => {
@@ -23,7 +24,9 @@ const checkWin = () => {
     ]
     win.forEach( e => {
         if((boxtexts[e[0]].innerText === boxtexts[e[1]].innerText) && (boxtexts[e[2]].innerText === boxtexts[e[1]].innerText) && (boxtexts[e[0]].innerText !== "")){
-
+          document.querySelector('.info').innerText = boxtexts[e[0]].innerText + "Won"
+          isgameover = true
+          document.querySelector(".imgbox").getElementsByTagName("img")[0].style.width = "200px"
         }
     })
 
@@ -39,8 +42,11 @@ Array.from(boxes).forEach((element) => {
       turnFirst = changeTurn(); 
       turnSound.play(); 
       checkWin();
-      document.getElementsByClassName("info")[0].innerText =
+      if(!isgameover){
+        document.getElementsByClassName("info")[0].innerText =
         "Turn for " + turnFirst; 
+      }
+      
     }
   });
 });
