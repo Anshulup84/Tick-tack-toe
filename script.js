@@ -26,7 +26,7 @@ const checkWin = () => {
         if((boxtexts[e[0]].innerText === boxtexts[e[1]].innerText) && (boxtexts[e[2]].innerText === boxtexts[e[1]].innerText) && (boxtexts[e[0]].innerText !== "")){
           document.querySelector('.info').innerText = boxtexts[e[0]].innerText + "Won"
           isgameover = true
-          document.querySelector(".imgbox").getElementsByTagName("img")[0].style.width = "200px"
+          document.querySelector(".imgbox").getElementsByTagName("img")[0].style.width = "250px"
         }
     })
 
@@ -50,3 +50,19 @@ Array.from(boxes).forEach((element) => {
     }
   });
 });
+
+// Add onclick listener to reset button
+
+reset.addEventListener('click', ()=> {
+  let boxtexts = document.querySelectorAll('.boxtext');
+  Array.from(boxtexts).forEach(element => {
+    element.innerText = ""
+  })
+  turnFirst = "X";
+  isgameover = false
+  document.getElementsByClassName("info")[0].innerText =
+  "Turn for " + turnFirst;
+  document.querySelector(".imgbox").getElementsByTagName("img")[0].style.width = "0px"
+})
+
+
